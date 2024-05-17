@@ -82,7 +82,7 @@ public class TimeTable extends JFrame implements ActionListener {
 
 			// custom code alert! adding associator and training it
 			this.autoassociator = new Autoassociator(courses);
-			//train();
+			train();
 	
 			draw();
 			break;
