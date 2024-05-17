@@ -1,43 +1,84 @@
 public class Autoassociator {
 	private int weights[][];
 	private int trainingCapacity;
+	private int courseCount;
 	
 	public Autoassociator(CourseArray courses) {
-		// TO DO
-		// creates a new Hopfield network with the same number of neurons 
-		// as the number of courses in the input CourseArray
+		trainingCapacity = 0;
+		courseCount = courses.length();
+
+		// initializaing the weight matrix
+		weights = new int[courseCount][courseCount];
+		
+		// making all the initial weights zero cuz thats how they should be
+		for(int i=0;i<courseCount;i++)
+			for(int j=0;j<courseCount;j++)
+				weights[i][j]=0;
 	}
 	
 	public int getTrainingCapacity() {
-		// TO DO
-		
-		return 0;
+
+		return trainingCapacity;
 	}
 	
 	public void training(int pattern[]) {
-		// TO DO
+		for(int i =0; i<courseCount; i++)
+		for(int j = 0;j<courseCount;j++)
+			if(i == j) continue;
+			else weights[i][j] += (int)(-0.5+pattern[j])*2*(-0.5+pattern[i]);
+		trainingCapacity = trainingCapacity + 1;
 	}
 	
 	public int unitUpdate(int neurons[]) {
-		// TO DO
-		// implements a single update step and
-		// returns the index of the randomly selected and updated neuron
+		int randomlySelectedNeuron = (int)(courseCount*Math.random());
+
+		int count =0;
+		for(int p = 0; p<courseCount;p++)
+			if(p == randomlySelectedNeuron) continue;
+			else count+=neurons[p]*weights[randomlySelectedNeuron][p];
 		
-		return 0;
+		if(count>0) neurons[randomlySelectedNeuron]=1;
+		else neurons[randomlySelectedNeuron]=-1;
+		return randomlySelectedNeuron;
 	}
 	
 	public void unitUpdate(int neurons[], int index) {
-		// TO DO
-		// implements the update step of a single neuron specified by index
+		int count =0;
+		for(int p = 0; p<courseCount;p++)
+			if(p == index) continue;
+			else count+=neurons[p]*weights[index][p];
+		
+		if(count>0) neurons[index]=1;
+		else neurons[index]=-1;
 	}
 	
 	public void chainUpdate(int neurons[], int steps) {
-		// TO DO
-		// implements the specified number od update steps
+		for(int p=0; p<courseCount;p++)
+			unitUpdate(neurons);
 	}
 	
 	public void fullUpdate(int neurons[]) {
-		// TO DO
-		// updates the input until the final state achieved
+		boolean isItStable;
+
+		isItStable=true;
+		for(int p=0;p<courseCount;p++){
+			int previous = neurons[p];
+			unitUpdate(neurons,p);
+			if(previous != neurons[p]) {
+				isItStable = false;
+			}
+		}
+
+		while(isItStable == false) {
+			isItStable=true;
+			for(int p=0;p<courseCount;p++){
+				int previous = neurons[p];
+				unitUpdate(neurons,p);
+				if(previous != neurons[p]) {
+					isItStable = false;
+				}
+			}
+		}
+
 	}
 }
