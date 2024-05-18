@@ -1,0 +1,20 @@
+
+I have applied the algorithm on the file lse-f-91.stu both without associator and with associator.
+
+First of all, let’s discuss the case without the autoassociator.
+
+File lse-f-91.stu contained 381 courses, and when I loaded the courses at first, there were a lot of conflicts. And there were a lot of red lines.
+
+Shift 1: conflicts are slowly becoming resolved, but after few steps, you do not see much progress.
+
+Shift: 15: If you take a bigger shift, first step solves many conflicts, and if you do 2-3 more steps, you will see that most of the conflicts are resolved. 
+SWITCH TO AUTOASSOCIATOR 
+
+Using autoassociator, however, it initially starts all red, however, after hitting start, almost all the conflicts are resolved.
+
+With Shift = 1: after hitting step, almost all conflicts are resolved. However, not all of them. If you press step again, all the conflicts will be resolved.
+
+With Shift = 15: changing the shift to 15 changes the situation a bit. Now, all the conflicts are resolved immediately after first step, instead of the second step like Shift = 1. 
+
+
+
