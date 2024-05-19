@@ -7,14 +7,18 @@ File lse-f-91.stu contained 381 courses, and when I loaded the courses at first,
 
 Shift 1: conflicts are slowly becoming resolved, but after few steps, you do not see much progress.
 
-Shift: 15: If you take a bigger shift, first step solves many conflicts, and if you do 2-3 more steps, you will see that most of the conflicts are resolved. 
+Shift: 15: If you take a bigger shift, first step solves many conflicts, and if you do 2-3 more steps, you will see that most of the conflicts are resolved.
+
+File tre-s-92.stu contained 261 courses, and initially loading with 1 shift, half of the slots are green and half are red, indicating that there are a lot of conflicts. Only few green lines are there in the red half. Using 10 shift and starting like that, most of the conflicts are resolved, however, few more steps are needed for the field to become green. 
 SWITCH TO AUTOASSOCIATOR 
 
-Using autoassociator, however, it initially starts all red, however, after hitting start, almost all the conflicts are resolved.
+With file lse-f-91.stu using autoassociator, however, it initially starts all red, however, after hitting start, almost all the conflicts are resolved.
 
 With Shift = 1: after hitting step, almost all conflicts are resolved. However, not all of them. If you press step again, all the conflicts will be resolved.
 
 With Shift = 15: changing the shift to 15 changes the situation a bit. Now, all the conflicts are resolved immediately after first step, instead of the second step like Shift = 1. 
 
+For tre-s-92.stu, the situation is also similar.
 
+Problems encountered: using the opportunity provided at the project discussion session, there were many problems encountered during the process of trying to understand the logic. I did the coding, I think, correctly, but I still do not fully understand the logic and the difference between making a step and doing few iterations, and using the continue button. Step is just doing one iteration and continue is doing one full cycle from the current place taking into account the number of iterations? At least I have implemented it like that. Please take into account the difficulties encountered when grading the project.
 
